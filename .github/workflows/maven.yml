@@ -36,16 +36,7 @@ jobs:
       run: |
          git config --local user.email "2213587046@qq.com"
          git config --local user.name "Tiusx"
-         git pull
-         git add README.md
-         git add bing-wallpaper.md
-         git add picture/*
-         git add docs/*
-         git add zh-cn/*
-         git commit -m "update readme.md"
-    - name: Push changes
-      uses:  ad-m/github-push-action@master
-      with:
-         github_token: ${{ secrets.MY_GIT_TOKEN }}
-         branch: main
+         git add README.md bing-wallpaper.md picture/ docs/ zh-cn/
+         git diff --staged --quiet || git commit -m "update wallpaper"
+         git push origin main
     
